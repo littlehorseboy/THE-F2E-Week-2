@@ -6,14 +6,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>filter</title>
     <link rel="stylesheet" href="src/lib/bootstrap v4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="src/lib/open-iconic-master/font/css/open-iconic-bootstrap.css">
+
+    <style>
+        @media (max-width: 767px) {
+            .custom-bg-white {
+                background-color: white !important;
+            }
+        }
+        
+        body {
+            background-color: #f2f2f2;
+        }
+
+        /* .headerLeft {
+
+        }
+
+        .headerRight {
+
+        } */
+
+        .mainLeft {
+            background-color: #ebebeb;
+        }
+
+        .px-15 {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
 </head>
 
 <body>
-    <h1>Hello, world!</h1>
-    <button class="btn btn-primary">purple</button>
-    <button class="btn btn-info">purple</button>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="headerLeft col-xl-3 col-md-4 p-2 bg-primary">HaveFun</div>
+            <div class="headerRight col-xl-9 col-md-8 p-2 bg-primary custom-bg-white">
+                <input class="form-control">
+            </div>
+        </header>
+        <main class="row">
+            <div class="mainLeft col-xl-3 col-md-4 px-0">
+                <div class="form-group px-2">
+                    <label class="col-form-label">Location</label>
+                    <select class="form-control">
+                        <option>Taiwan</option>
+                    </select>
+                </div>
+                <div class="form-group row mx-0 border-top" style="border-top-color: #d7d7d7 !important;">
+                    <div class="col-sm-2">
+                        <label class="col-form-label">Date</label>
+                    </div>
+                    <div class="offset-sm-10"></div>
+
+                    <label class="col-sm-2 col-form-label">from</label>
+                    <div class="col-sm-10">
+                        <input class="form-control">
+                    </div>
+
+                    <label class="col-sm-2 col-form-label">to</label>
+                    <div class="col-sm-10">
+                        <input class="form-control">
+                    </div>
+                </div>
+                <div class="form-group px-15 border-top" style="border-top-color: #d7d7d7 !important;">
+                    <label class="col-form-label">Categories</label>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">All</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Entertainment</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Food</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Learning</label>
+                    </div>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">Outdoors</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mainRight col-xl-9 col-md-8">
+                <div class="h4 font-weight-normal">Showing 15 results by...</div>
+                <div>
+                    <button class="btn btn-outline-primary">
+                        Koahsiung
+                        <span class="oi oi-circle-x"></span>
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        Entertainment
+                        <span class="oi oi-circle-x"></span>
+                    </button>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-3">
+                        <img class="img-fluid" src="http://78.media.tumblr.com/tumblr_m4ljmka9qh1r2h6ioo1_500.jpg">
+                    </div>
+                    <div class="col-xl-9">
+                        <div class="h5">Cat at the beach</div>
+                        <p>Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
+                        <div>
+                            <span>Cat at the beach.</span>
+                            <button class="btn btn-secondary">Entertainment</button>
+                        </div>
+                        <div>
+                            <span>
+                                <span class="oi oi-map-marker"></span>
+                                Cat at the beach.
+                            </span>
+                            <span>
+                                <span class="oi oi-calendar"></span>
+                                Cat at the beach.
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3">
+                        <img class="img-fluid" src="http://78.media.tumblr.com/tumblr_m4ljmka9qh1r2h6ioo1_500.jpg">
+                    </div>
+                    <div class="col-xl-9">
+                        <div class="h5">Cat at the beach</div>
+                        <p>Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
+                        <div>
+                            <span>Cat at the beach.</span>
+                            <button class="btn btn-secondary">Entertainment</button>
+                        </div>
+                        <div>
+                            <span>
+                                <span class="oi oi-map-marker"></span>
+                                Cat at the beach.
+                            </span>
+                            <span>
+                                <span class="oi oi-calendar"></span>
+                                Cat at the beach.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 
     <script src="https://momentjs.com/downloads/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
