@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="src/lib/open-iconic-master/font/css/open-iconic-bootstrap.css">
 
     <style>
+        .custom-control-label:before{
+            background-color:white;
+        }
+
         @media (max-width: 767px) {
             .custom-bg-white {
                 background-color: white !important;
@@ -19,13 +23,13 @@
             background-color: #f2f2f2;
         }
 
-        /* .headerLeft {
-
+        .headerLeft {
+            font-family: Optima-ExtraBlack;
         }
 
         .headerRight {
 
-        } */
+        }
 
         .mainLeft {
             background-color: #ebebeb;
@@ -44,37 +48,37 @@
 <body>
     <div class="container-fluid">
         <header class="row">
-            <div class="headerLeft col-xl-3 col-md-4 p-2 bg-primary">HaveFun</div>
+            <div class="headerLeft col-xl-3 col-md-4 p-3 px-4 bg-primary text-white font-weight-bold h3 mb-0">HaveFun</div>
             <div class="headerRight col-xl-9 col-md-8 p-2 bg-primary custom-bg-white">
                 <input class="form-control">
             </div>
         </header>
         <main class="row">
             <div class="mainLeft col-xl-3 col-md-4 px-0">
-                <div class="form-group px-2">
-                    <label class="col-form-label">Location</label>
+                <div class="form-group px-4">
+                    <label class="col-form-label font-weight-bold py-3">Location</label>
                     <select class="form-control">
                         <option>Taiwan</option>
                     </select>
                 </div>
-                <div class="form-group row mx-0 border-top" style="border-top-color: #d7d7d7 !important;">
-                    <div class="col-sm-2">
-                        <label class="col-form-label">Date</label>
+                <div class="form-group border-top px-4" style="border-top-color: #d7d7d7 !important;">
+                    <div class="">
+                        <label class="col-form-label font-weight-bold py-3">Date</label>
                     </div>
-                    <div class="offset-sm-10"></div>
+                    <div class=""></div>
 
-                    <label class="col-sm-2 col-form-label">from</label>
-                    <div class="col-sm-10">
+                    <label class="col-form-label text-right">from</label>
+                    <div class="">
                         <input class="form-control">
                     </div>
 
-                    <label class="col-sm-2 col-form-label">to</label>
-                    <div class="col-sm-10">
+                    <label class="col-form-label text-right">to</label>
+                    <div class="">
                         <input class="form-control">
                     </div>
                 </div>
-                <div class="form-group px-15 border-top" style="border-top-color: #d7d7d7 !important;">
-                    <label class="col-form-label">Categories</label>
+                <div class="form-group px-4 border-top" style="border-top-color: #d7d7d7 !important;">
+                    <label class="col-form-label font-weight-bold py-3">Categories</label>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="customCheck1">
                         <label class="custom-control-label" for="customCheck1">All</label>
@@ -101,9 +105,9 @@
                     </div>
                 </div>
             </div>
-            <div class="mainRight col-xl-9 col-md-8">
-                <div class="h4 font-weight-normal">Showing 15 results by...</div>
-                <div>
+            <div class="mainRight col-xl-9 col-md-8 px-4">
+                <div class="h4 py-3 mb-0 font-weight-normal">Showing 15 results by...</div>
+                <div class="pb-3">
                     <button class="btn btn-outline-primary">
                         Koahsiung
                         <span class="oi oi-circle-x"></span>
@@ -114,18 +118,18 @@
                     </button>
                 </div>
                 
-                <div class="row">
-                    <div class="col-xl-3">
+                <div class="row bg-white m-2 mb-4">
+                    <div class="col-lg-3 px-0">
                         <img class="img-fluid" src="http://78.media.tumblr.com/tumblr_m4ljmka9qh1r2h6ioo1_500.jpg">
                     </div>
-                    <div class="col-xl-9">
-                        <div class="h5">Cat at the beach</div>
-                        <p>Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
-                        <div>
-                            <span>Cat at the beach.</span>
+                    <div class="col-lg-9 px-0">
+                        <div class="h5 px-4 pt-4 text-primary">Cat at the beach</div>
+                        <p class="px-4">Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
+                        <div class="px-4">
+                            <span class="font-weight-bold">Cat at the beach.</span>
                             <button class="btn btn-secondary">Entertainment</button>
                         </div>
-                        <div>
+                        <div class="px-4 pb-3">
                             <span>
                                 <span class="oi oi-map-marker"></span>
                                 Cat at the beach.
@@ -136,18 +140,20 @@
                             </span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-xl-3">
+                <div class="row bg-white m-2 mb-4">
+                    <div class="col-lg-3 px-0">
                         <img class="img-fluid" src="http://78.media.tumblr.com/tumblr_m4ljmka9qh1r2h6ioo1_500.jpg">
                     </div>
-                    <div class="col-xl-9">
-                        <div class="h5">Cat at the beach</div>
-                        <p>Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
-                        <div>
-                            <span>Cat at the beach.</span>
+                    <div class="col-lg-9 px-0">
+                        <div class="h5 px-4 pt-4 text-primary">Cat at the beach</div>
+                        <p class="px-4">Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.Cat at the beach.</p>
+                        <div class="px-4">
+                            <span class="font-weight-bold">Cat at the beach.</span>
                             <button class="btn btn-secondary">Entertainment</button>
                         </div>
-                        <div>
+                        <div class="px-4 pb-3">
                             <span>
                                 <span class="oi oi-map-marker"></span>
                                 Cat at the beach.
