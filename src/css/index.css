@@ -1,0 +1,33 @@
+.custom-control-label:before {
+  background-color: white;
+}
+
+.img-fluid.cover {
+  min-height: 250px;
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .custom-bg-white {
+    background-color: white !important;
+  }
+}
+
+body {
+  background-color: #f2f2f2;
+  font-size: 0.95rem;
+}
+
+.headerLeft {
+  font-family: Optima-ExtraBlack;
+}
+
+.headerRight {}
+
+.bg-purple {
+  background-color: #7828B4;
+}
+
+.mainLeft {
+  background-color: #ebebeb;
+}

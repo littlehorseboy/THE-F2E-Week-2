@@ -11,6 +11,9 @@ const vm = new Vue({
     // 分頁功能用
     countOfPage: 5,
     currPage: 1,
+    // detail 頁面
+    showDetail: false,
+    detail: {},
   },
   computed: {
     // TravelInfos 篩選結果
@@ -88,13 +91,30 @@ const vm = new Vue({
       }
       this.currPage = idx;
     },
+    // detail 頁面
+    showDetailFunc(id) {
+      if (id) {
+        const index = vm.travelInfos.findIndex((travelInfo) => {
+          return travelInfo.Id === id;
+        });
+
+        const sliceInfos = vm.travelInfos.slice(index, index + 1);
+        sliceInfos.forEach((info) => {
+          this.detail = info;
+        });
+
+        this.showDetail = true;
+      } else {
+        this.showDetail = false;
+      }
+    },
   },
   filters: {
     moment(value) {
       if (!value) return '';
       return moment(value).fromNow();
       // return moment(value).format('YYYY-MM-DD HH:mm:ss');
-    }
+    },
   },
   created() {
     const self = this;
