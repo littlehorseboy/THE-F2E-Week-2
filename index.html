@@ -7,6 +7,7 @@
     <title>filter</title>
     <link rel="stylesheet" href="src/lib/bootstrap v4.1.1/css/bootstrap.css">
     <link rel="stylesheet" href="src/lib/fontawesome-free-5.0.13/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/flatpickr@4.5.0/dist/flatpickr.min.css">
 
     <style>
         .custom-control-label:before{
@@ -76,46 +77,55 @@
                     </select>
                 </div>
                 <div class="form-group border-top px-4" style="border-top-color: #d7d7d7 !important;">
-                    <div class="">
+                    <div>
                         <label class="col-form-label font-weight-bold py-3">Date</label>
                     </div>
-                    <div class=""></div>
 
                     <label class="col-form-label text-right">from</label>
-                    <div class="">
-                        <input class="form-control">
+                    <div class="input-group mb-3">
+                        <input v-model="fromDate" class="flatpickr form-control" placeholder="YYYY-MM-DD">
+                        <div class="input-group-append">
+                            <button @click="fromDate = '';" class="btn btn-outline-primary">
+                                <i class="far fa-times-circle"></i>
+                            </button>
+                        </div>
                     </div>
 
                     <label class="col-form-label text-right">to</label>
-                    <div class="">
-                        <input class="form-control">
+                    <div class="input-group mb-3">
+                        <input v-model="toDate" class="flatpickr form-control" placeholder="YYYY-MM-DD">
+                        <div class="input-group-append">
+                            <button @click="toDate = '';" class="btn btn-outline-primary">
+                                <i class="far fa-times-circle"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group px-4 border-top" style="border-top-color: #d7d7d7 !important;">
                     <label class="col-form-label font-weight-bold py-3">Categories</label>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">All</label>
+                        <input v-model="checkedNames" value="公園" type="checkbox" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label" for="customCheck1">公園</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Entertainment</label>
+                        <input v-model="checkedNames" value="博物館" type="checkbox" class="custom-control-input" id="customCheck2">
+                        <label class="custom-control-label" for="customCheck2">博物館</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Food</label>
+                        <input v-model="checkedNames" value="美術館" type="checkbox" class="custom-control-input" id="customCheck3">
+                        <label class="custom-control-label" for="customCheck3">美術館</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Learning</label>
+                        <input v-model="checkedNames" value="保護區" type="checkbox" class="custom-control-input" id="customCheck4">
+                        <label class="custom-control-label" for="customCheck4">保護區</label>
                     </div>
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                        <label class="custom-control-label" for="customCheck1">Outdoors</label>
+                        <input v-model="checkedNames" value="古蹟" type="checkbox" class="custom-control-input" id="customCheck5">
+                        <label class="custom-control-label" for="customCheck5">古蹟</label>
                     </div>
                 </div>
             </div>
@@ -144,11 +154,12 @@
                         <div class="h5 px-4 pt-4 text-primary">{{ travelInfo.Name }}</div>
                         <p class="px-4">{{ travelInfo.Description }}</p>
                         <div class="px-4">
-                            <span class="font-weight-bold">{{ travelInfo.Name }}</span>
-                            <span class="badge badge-pill badge-secondary">{{ travelInfo.Name }}</span>
+                            <span class="font-weight-bold mr-2">{{ travelInfo.Name }}</span>
+                            <span class="badge badge-pill badge-secondary mr-2">{{ travelInfo.Zone }}</span>
+                            <span>{{ travelInfo.Changetime | moment }}</span>
                         </div>
                         <div class="px-4 pb-3">
-                            <span>
+                            <span class="mr-3">
                                 <i class="fas fa-map-marker-alt"></i>
                                 {{ travelInfo.Add }}
                             </span>
@@ -187,6 +198,7 @@
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
     <script src="src/lib/bootstrap v4.1.1/js/jquery.min.js"></script>
     <script src="src/lib/bootstrap v4.1.1/js/bootstrap.bundle.js"></script>
+    <script src="https://npmcdn.com/flatpickr@4.5.0/dist/flatpickr.min.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel" src="src/js/index.js"></script>

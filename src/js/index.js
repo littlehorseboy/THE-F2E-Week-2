@@ -2,28 +2,67 @@ const vm = new Vue({
   el: '#travelPage',
   data: {
     travelInfos: [],
-    locationSelected: '',
+    // 篩選用
     filter_Name: '',
+    locationSelected: '',
+    fromDate: '',
+    toDate: '',
+    checkedNames: [],
+    // 分頁功能用
     countOfPage: 5,
     currPage: 1,
   },
   computed: {
+    // TravelInfos 篩選結果
     filteredTravelInfos() {
-      // 如果 filter_name 有內容，回傳過濾後的資料，否則將原本的 rows 回傳。
-      return (this.filter_Name.trim() !== '') ?
-        this.travelInfos.filter((travelInfo) => {
+      let filteredTravelInfos = this.travelInfos;
+      // 關鍵字篩選
+      if (this.filter_Name.trim() !== '') {
+        filteredTravelInfos = filteredTravelInfos.filter((travelInfo) => {
           return travelInfo.Name.indexOf(this.filter_Name) > -1;
-        }) :
-        this.travelInfos;
+        });
+      }
+      // 地點篩選
+      if (this.locationSelected.trim() !== '') {
+        filteredTravelInfos = filteredTravelInfos.filter((travelInfo) => {
+          return travelInfo.Zone.indexOf(this.locationSelected) > -1;
+        });
+      }
+      // 日期篩選
+      if (this.fromDate.trim() !== '') {
+        filteredTravelInfos = filteredTravelInfos.filter((travelInfo) => {
+          return travelInfo.Changetime > this.fromDate;
+        });
+      }
+      // 日期篩選
+      if (this.toDate.trim() !== '') {
+        filteredTravelInfos = filteredTravelInfos.filter((travelInfo) => {
+          return travelInfo.Changetime < this.toDate;
+        });
+      }
+      // Category 篩選
+      if (this.checkedNames.length > 0) {
+        filteredTravelInfos = filteredTravelInfos.filter((travelInfo) => {
+          let bool = false;
+          this.checkedNames.forEach((checkName) => {
+            if (travelInfo.Name.indexOf(checkName) > -1) {
+              bool = true;
+            }
+          });
+          return bool;
+        });
+      }
+
+      return filteredTravelInfos;
     },
 
-    // 
+    // 分頁目前起始 index
     pageStart() {
       return (this.currPage - 1) * this.countOfPage;
     },
-    // 
+    // 分頁每一頁的數量
     totalPage() {
-      return Math.ceil(this.travelInfos.length / this.countOfPage);
+      return Math.ceil(this.filteredTravelInfos.length / this.countOfPage);
     },
 
     // 下拉選單內容建構
@@ -42,12 +81,20 @@ const vm = new Vue({
     },
   },
   methods: {
+    // 點選切換分頁
     setPage(idx) {
       if (idx <= 0 || idx > this.totalPage) {
         return;
       }
       this.currPage = idx;
     },
+  },
+  filters: {
+    moment(value) {
+      if (!value) return '';
+      return moment(value).fromNow();
+      // return moment(value).format('YYYY-MM-DD HH:mm:ss');
+    }
   },
   created() {
     const self = this;
@@ -62,5 +109,13 @@ const vm = new Vue({
       .catch(function (error) {
         console.log(error);
       });
+  },
+  mounted() {
+    flatpickr('.flatpickr', {
+      // enableTime: true,
+      // allowInput: true,
+      dateFormat: 'Y/m/d',
+      // locale: 'zh',
+    });
   },
 });
