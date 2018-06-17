@@ -60,7 +60,7 @@
                             <i class="fas fa-search"></i>
                         </span>
                     </div>
-                    <input class="form-control" placeholder="Explore your own activities">
+                    <input v-model="filter_Name" class="form-control" placeholder="Explore your own activities">
                 </div>
             </div>
         </header>
@@ -68,7 +68,7 @@
             <div class="mainLeft col-xl-3 col-md-4 px-0">
                 <div class="form-group px-4">
                     <label class="col-form-label font-weight-bold py-3">Location</label>
-                    <select  v-model="locationSelected" class="form-control">
+                    <select v-model="locationSelected" class="form-control">
                         <option value=""></option>
                         <option v-for="(locationSelect, index) in locationSelects" :key="index" :value="locationSelect">
                             {{ locationSelect }}
@@ -120,7 +120,11 @@
                 </div>
             </div>
             <div class="mainRight col-xl-9 col-md-8 px-4">
-                <div class="h4 py-3 mb-0 font-weight-normal">Showing {{ travelInfos.length }} results by...</div>
+                <div class="h4 py-3 mb-0 font-weight-normal">
+                    Showing
+                    <span class="text-primary">{{ filteredTravelInfos.length }}</span>
+                    results by...
+                </div>
                 <div class="pb-3">
                     <button class="btn btn-outline-primary">
                         Koahsiung
@@ -132,7 +136,7 @@
                     </button>
                 </div>
                 
-                <div v-for="(travelInfo, index) in travelInfos" :key="index" class="row bg-white m-2 mb-4">
+                <div v-for="(travelInfo, index) in filteredTravelInfos.slice(pageStart, pageStart + countOfPage)" :key="index" class="row bg-white m-2 mb-4">
                     <div class="col-lg-3 px-0">
                         <img class="img-fluid cover" :src="travelInfo.Picture1">
                     </div>
@@ -158,22 +162,16 @@
 
                 <nav>
                     <ul class="pagination justify-content-end">
-                        <li class="page-item">
+                        <li @click.prevent="setPage(currPage-1)" :class="{'disabled': (currPage === 1)}" class="page-item">
                             <a class="page-link" href="#" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous</span>
                             </a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">1</a>
+                        <li v-for="n in totalPage" @click.prevent="setPage(n)" :class="{'active': (currPage === (n))}" class="page-item">
+                            <a class="page-link" href="#">{{ n }}</a>
                         </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">3</a>
-                        </li>
-                        <li class="page-item">
+                        <li @click.prevent="setPage(currPage+1)" :class="{'disabled': (currPage === totalPage)}" class="page-item">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next</span>

@@ -3,8 +3,30 @@ const vm = new Vue({
   data: {
     travelInfos: [],
     locationSelected: '',
+    filter_Name: '',
+    countOfPage: 5,
+    currPage: 1,
   },
   computed: {
+    filteredTravelInfos() {
+      // 如果 filter_name 有內容，回傳過濾後的資料，否則將原本的 rows 回傳。
+      return (this.filter_Name.trim() !== '') ?
+        this.travelInfos.filter((travelInfo) => {
+          return travelInfo.Name.indexOf(this.filter_Name) > -1;
+        }) :
+        this.travelInfos;
+    },
+
+    // 
+    pageStart() {
+      return (this.currPage - 1) * this.countOfPage;
+    },
+    // 
+    totalPage() {
+      return Math.ceil(this.travelInfos.length / this.countOfPage);
+    },
+
+    // 下拉選單內容建構
     locationSelects() {
       const locationSelects = [];
 
@@ -17,6 +39,14 @@ const vm = new Vue({
       });
 
       return distinctLocationSelects;
+    },
+  },
+  methods: {
+    setPage(idx) {
+      if (idx <= 0 || idx > this.totalPage) {
+        return;
+      }
+      this.currPage = idx;
     },
   },
   created() {
