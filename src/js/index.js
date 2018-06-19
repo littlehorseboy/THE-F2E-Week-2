@@ -90,6 +90,7 @@ const vm = new Vue({
         return;
       }
       this.currPage = idx;
+      window.scrollTo(0, 0);
     },
     // detail 頁面
     showDetailFunc(id) {
