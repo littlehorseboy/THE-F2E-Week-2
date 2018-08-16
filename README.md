@@ -1,6 +1,6 @@
 # No2.filter
 
-[The F2E - 前端修練精神時光屋](https://zh-tw.facebook.com/groups/173311386703334/permalink/180292126005260/)
+[The F2E - 前端修練精神時光屋](https://zh-tw.facebook.com/groups/173311386703334/)
 
 [第二週 - filter](https://zh-tw.facebook.com/groups/173311386703334/permalink/181532992547840/)
 
